@@ -19,7 +19,7 @@ RUN cp -R node_modules prod_node_modules
 COPY . /src
 
 # Install remaining dev dependencies
-RUN npm ci
+RUN PUPPETEER_SKIP_DOWNLOAD=true npm ci
 
 # Run all webpack build steps
 RUN npm run prepare && npm run build
